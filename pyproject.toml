@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "darkest-parser"
+version = "1.0.0"
+description = "Parser for .darkest file"
+authors = ["syrinka <syrinka@foxmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+lark = "^1.1.8"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
