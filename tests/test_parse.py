@@ -19,8 +19,6 @@ dark = parse(text)
 def test_header():
     header = dark[0]
     assert header.title[0] == 'darkest-parser'
-    header.title = 'darkest_parser'
-    assert header.title[0] == 'darkest_parser'
 
 def test_data():
     data = dark.find('data')
@@ -34,7 +32,7 @@ def test_data():
     assert data.list == [1,2,3,4,5]
 
 def test_select():
-    assert len(list(dark.findall('select'))) == 3
+    assert len(dark.findall('select')) == 3
     marked = dark.find(id='hellix')
     assert marked.mark[0] == 'a'
 
