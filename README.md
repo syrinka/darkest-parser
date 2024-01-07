@@ -31,7 +31,7 @@ weapon0.tag == 'weapon'
 weapon0.dmg = [14, 17]
 weapon0.spd = 25
 
-for rush in dark.findall('combat_skill', id='hounds_rush'):
+for rush in dark.finditer('combat_skill', id='hounds_rush'):
     rush.type = 'meele'
     rush.set('ignore_guarded')
 
@@ -60,6 +60,8 @@ def unparse(Darkest) -> str:
 
 class Darkest:
     def __getitem__(int) -> Element:
+        ...
+    def finditer(str | None, **{str: Any}) -> Generator[Element, Any, Any]:
         ...
     def findall(str | None, **{str: Any}) -> List[Element]:
         ...

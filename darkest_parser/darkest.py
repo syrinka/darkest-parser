@@ -68,7 +68,7 @@ class Darkest(object):
             yield Element(i) # type: ignore
 
 
-    def findall(self, tag: str | None = None, **conds) -> Generator[Element, Any, Any]:
+    def finditer(self, tag: str | None = None, **conds) -> Generator[Element, Any, Any]:
         """
         eg. `findall('combat_skill', type='ranged')`
         """
@@ -93,12 +93,16 @@ class Darkest(object):
                 yield element
 
 
+    def findall(self, tag: str | None = None, **conds) -> list[Element]:
+        return list(self.finditer(tag, **conds))
+
+
     def find(self, tag: str | None = None, **conds) -> Element:
         """
         eg. `find('combat_skill', id='transform', level=1)`
         """
         try:
-            return next(self.findall(tag, **conds))
+            return next(self.finditer(tag, **conds))
         except StopIteration:
             raise KeyError
 
