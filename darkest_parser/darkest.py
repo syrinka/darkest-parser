@@ -17,7 +17,7 @@ value: (NUMBER | BOOL | LITERAL | STRING)*
 NUMBER: /[+-]?/ (/\d+\.\d+/ | /\d+/) /%?/
 BOOL: "true"i | "false"i
 LITERAL: /[\w\-\~\@]+/
-STRING: "\"" (LITERAL | " ")+ "\""
+STRING: "\"" (LITERAL | " ")* "\""
 
 EOL: "\n"
 IGNORE: " " | "\n"
@@ -78,7 +78,10 @@ class Darkest(object):
             for key in conds:
                 try:
                     v1 = conds[key]
-                    v2 = getattr(element, key)[0] 
+                    attr = getattr(element, key)
+                    if len(attr) == 0:
+                        break
+                    v2 = attr[0]
                     if isinstance(v2, str):
                         # for more convenient string compare
                         v2 = v2.strip('"')
