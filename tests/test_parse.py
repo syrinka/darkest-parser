@@ -22,14 +22,14 @@ def test_header():
 
 def test_data():
     data = dark.find('data')
-    assert data.t[0] == True
-    assert data.f[0] == False
-    assert data.int[0] == 15
-    assert data.float[0] == 17.28
-    assert data.percent[0] == 0.55
-    assert data.string[0] == 'yes'
-    assert data.literal[0] == 'creature'
-    assert data.list == [1,2,3,4,5]
+    assert data.t == [True]
+    assert data.f == [False]
+    assert data.int == [15]
+    assert data.float == [17.28]
+    assert data.percent == [0.55]
+    assert data.string == ['yes']
+    assert data.literal == ['creature']
+    assert data.list == [1, 2, 3, 4, 5]
 
 def test_select():
     assert len(dark.findall('select')) == 3
@@ -38,13 +38,13 @@ def test_select():
 
 def test_alter():
     alter = dark[-1]
-    assert alter.data == [1,3]
-    alter.data = [2,6]
-    assert alter.data == [2,6]
-    alter.set('data', [7,9])
-    assert alter.data == [7,9]
+    assert alter.data == [1, 3]
+    alter.data = [2, 6]
+    assert alter.data == [2, 6]
+    alter.set('data', [7, 9])
+    assert alter.data == [7, 9]
     alter.data = [1, *alter.data, 3]
-    assert alter.data == [1,7,9,3]
+    assert alter.data == [1, 7, 9, 3]
     alter.pop('data')
     assert alter.has('data') == False
     alter.set('data')
