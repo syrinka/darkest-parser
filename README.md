@@ -1,6 +1,6 @@
 # darkest-parser
 
-**darkest-parser** is a module to parser `.darkest` file originally from [Darkest Dungeon](https://www.darkestdungeon.com/) programatically.
+**darkest-parser** is a module to read and edit `.darkest` file originally from [Darkest Dungeon](https://www.darkestdungeon.com/) programatically.
 
 ## Usage
 
