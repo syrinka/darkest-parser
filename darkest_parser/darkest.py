@@ -204,7 +204,7 @@ class Element(object):
 
 
 def parse(text: str) -> Darkest:
-    return Darkest(LEX.parse(text + '\n')) # +'\n' to make sure there's always a EOL
+    return Darkest(LEX.parse(text.replace('\t', ' ') + '\n')) # +'\n' to make sure there's always a EOL
 
 
 def unparse(inst: Darkest) -> str:
