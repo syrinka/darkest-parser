@@ -1,0 +1,4 @@
+version: 3
+
+tasks:
+  cov: pytest --cov-report term-missing --cov=darkest_parser
