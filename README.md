@@ -47,6 +47,7 @@ rush1.set('target', '~1234', 'literal')
 # literal means that the value is unquoted, it's useful in some case,
 # for example: launch, target, valid_modes, etc.
 
+print(dark.pretty()) # print abstract tree
 print(unparse(dark))
 ```
 

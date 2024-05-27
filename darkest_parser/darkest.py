@@ -107,7 +107,7 @@ class Darkest(object):
             raise KeyError
 
 
-    def pretty(self, indent_str='  ') -> str:
+    def pretty(self, indent_str='  ') -> str: # pragma: no cover
         return self.tree.pretty(indent_str)
 
 
@@ -156,10 +156,10 @@ class Element(object):
         if not isinstance(value, list):
             value = [value]
         if value[0] is not None and type is None:
-            if isinstance(value[0], (int, float)) or _is_number(value[0]):
-                type = 'number'
-            elif isinstance(value[0], bool):
+            if isinstance(value[0], bool):
                 type = 'bool'
+            elif isinstance(value[0], (int, float)) or _is_number(value[0]):
+                type = 'number'
             else:
                 type = 'string'
 

@@ -26,3 +26,11 @@ def test_cond3():
 
 def test_none():
     assert len(dark.findall(d=None)) == 0
+
+def test_miss():
+    try:
+        dark.find(noexist=True)
+    except Exception as e:
+        assert isinstance(e, KeyError)
+    else:
+        assert False
